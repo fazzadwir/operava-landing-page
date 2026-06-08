@@ -79,7 +79,7 @@ export default function HeroSection() {
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
-          padding-top: 160px;
+          padding-top: 72px;
         }
         .hero__content {
           position: relative;
@@ -88,22 +88,23 @@ export default function HeroSection() {
           flex-direction: column;
           align-items: center;
           text-align: center;
-          max-width: 1760px;
-          padding-block: var(--space-15) var(--space-12);
+          max-width: 1360px;
+          padding-block: var(--space-10) var(--space-8);
+          transform: translateY(-24px);
         }
         .hero__title {
-          max-width: 1520px;
+          max-width: 1280px;
           color: var(--color-text-primary);
-          font-size: 56px;
+          font-size: 48px;
           font-weight: var(--fw-semibold);
           line-height: 1.3;
           letter-spacing: 0;
           margin-bottom: var(--space-4);
         }
         .hero__description {
-          max-width: 1680px;
+          max-width: 1160px;
           color: #3d4246;
-          font-size: 24px;
+          font-size: 18px;
           font-weight: var(--fw-regular);
           line-height: var(--lh-body);
           margin-bottom: var(--space-4);
@@ -124,16 +125,17 @@ export default function HeroSection() {
         @media (max-width: 900px) {
           .hero {
             min-height: auto;
-            padding-top: 112px;
+            padding-top: 72px;
           }
           .hero__content {
             padding-block: var(--space-12) var(--space-10);
+            transform: none;
           }
           .hero__title {
             font-size: 40px;
           }
           .hero__description {
-            font-size: 20px;
+            font-size: 18px;
           }
           .hero__actions {
             gap: var(--space-2);

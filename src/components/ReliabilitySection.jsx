@@ -126,7 +126,7 @@ export default function ReliabilitySection() {
         }
         .reliability__body {
           color: var(--color-text-secondary);
-          font-size: var(--font-size-base);
+          font-size: 18px;
           line-height: var(--lh-body);
           margin-bottom: var(--space-4);
         }

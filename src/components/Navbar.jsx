@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import operavaLogo from '../assets/operava-logo.svg';
 
 const navLinks = [
   { label: 'Service', href: '#services' },
@@ -36,8 +37,7 @@ export default function Navbar() {
         <div className="container navbar__inner">
           {/* Logo */}
           <a href="/" className="navbar__logo">
-            <span className="navbar__logo-mark">Opera</span>
-            <span className="navbar__logo-text">va</span>
+            <img src={operavaLogo} alt="Operava" className="navbar__logo-img" />
           </a>
 
           {/* Desktop Nav */}
@@ -112,63 +112,72 @@ export default function Navbar() {
 
       <style>{`
         .navbar {
-          padding: var(--space-8) var(--space-8) 0;
-          background: transparent;
+          background: #ffffff;
+          border-bottom: 1px solid rgba(229, 234, 240, 0.72);
+          box-shadow: 0 1px 8px rgba(18, 18, 18, 0.03);
           pointer-events: none;
         }
         .navbar__inner {
           display: flex;
-          justify-content: space-between;
+          justify-content: stretch;
           align-items: center;
           gap: var(--space-4);
-          max-width: 1776px;
-          background: #FFF;
-          border-radius: 999px;
-          box-shadow: 0 4px 15px 0 rgba(29, 36, 60, 0.08);
-          padding: 12px var(--space-4);
+          max-width: 100%;
+          min-height: 72px;
+          padding: 0 var(--space-3);
           pointer-events: auto;
         }
         .navbar__logo {
           display: flex;
           align-items: center;
-          font-size: clamp(2rem, 2.3vw, 2.75rem);
+          min-width: 172px;
+          font-size: clamp(1.5rem, 1.45vw, 1.8rem);
           font-weight: var(--fw-semibold);
-          color: var(--color-text-primary);
+          color: var(--color-primary);
           letter-spacing: 0;
           flex-shrink: 0;
         }
-        .navbar__logo-mark {
-          color: var(--color-primary);
+        .navbar__logo-img {
+          width: 128px;
+          height: auto;
         }
         .navbar__links {
           display: flex;
           align-items: center;
-          gap: var(--space-8);
-          margin-left: auto;
+          justify-content: center;
+          gap: clamp(var(--space-3), 3.6vw, 64px);
+          flex: 1;
         }
         .navbar__link {
-          padding: var(--space-1) 0;
-          font-size: var(--font-size-lg);
+          padding: 4px 0;
+          font-size: 15px;
           font-weight: var(--fw-medium);
-          color: var(--color-text-secondary);
+          color: #8d908c;
           transition: color var(--transition-base);
         }
         .navbar__link:first-child {
-          color: var(--color-primary);
+          color: #008f45;
           font-weight: var(--fw-semibold);
         }
         .navbar__link:hover {
-          color: var(--color-text-primary);
+          color: var(--color-primary-dark);
         }
         .navbar__actions {
           display: flex;
           align-items: center;
           gap: var(--space-2);
+          min-width: 180px;
+          justify-content: flex-end;
         }
         .navbar__cta {
-          padding: var(--space-1) var(--space-2);
-          font-size: var(--font-size-base);
-          min-width: 192px;
+          min-width: 180px;
+          min-height: 42px;
+          padding: 0 18px;
+          font-size: 15px;
+          font-weight: var(--fw-medium);
+          border-radius: 2px;
+          border-bottom: 2px solid rgba(2, 211, 95, 0);
+          background: #02D35F;
           justify-content: center;
         }
         .navbar__toggle {
@@ -182,7 +191,7 @@ export default function Navbar() {
         }
         .mobile-nav {
           position: fixed;
-          top: 64px;
+          top: 72px;
           left: 0;
           right: 0;
           background: var(--color-bg);
@@ -207,16 +216,17 @@ export default function Navbar() {
           color: var(--color-text-primary);
         }
         @media (max-width: 768px) {
-          .navbar {
-            padding: var(--space-3) var(--space-2) 0;
-          }
           .navbar__inner {
-            min-height: var(--space-8);
-            border-radius: var(--radius-md);
+            min-height: 64px;
             padding-inline: var(--space-2);
+            gap: var(--space-2);
           }
           .navbar__logo {
-            font-size: var(--font-size-2xl);
+            font-size: var(--font-size-xl);
+            min-width: auto;
+          }
+          .navbar__logo-img {
+            width: 112px;
           }
           .navbar__links,
           .navbar__actions {
@@ -224,6 +234,9 @@ export default function Navbar() {
           }
           .navbar__toggle {
             display: flex;
+          }
+          .mobile-nav {
+            top: 64px;
           }
         }
       `}</style>

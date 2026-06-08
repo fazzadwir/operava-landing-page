@@ -179,7 +179,7 @@ button {
 }
 
 .section-subtitle {
-  font-size: var(--font-size-lg);
+  font-size: 18px;
   font-weight: var(--fw-regular);
   line-height: var(--lh-body);
   color: var(--color-text-secondary);

@@ -1,4 +1,5 @@
 import { Globe, Mail } from 'lucide-react';
+import operavaLogo from '../assets/operava-logo.svg';
 
 const footerMenu = [
   { label: 'Home', href: '#hero' },
@@ -22,8 +23,7 @@ export default function Footer() {
         <div className="footer__top">
           <div className="footer__brand">
             <a href="#hero" className="footer__logo" onClick={(event) => handleNav(event, '#hero')}>
-              <span className="footer__logo-mark">O</span>
-              <span>perava</span>
+              <img src={operavaLogo} alt="Operava" className="footer__logo-img" />
             </a>
             <p className="footer__description">
               Managed DevOps, SOC & IT Operation Service untuk bisnis yang membutuhkan sistem
@@ -91,8 +91,9 @@ export default function Footer() {
           font-weight: var(--fw-semibold);
           line-height: var(--lh-body);
         }
-        .footer__logo-mark {
-          color: var(--color-primary);
+        .footer__logo-img {
+          width: 132px;
+          height: auto;
         }
         .footer__description {
           max-width: 384px;

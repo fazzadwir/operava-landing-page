@@ -85,7 +85,7 @@ export default function BrandIntroSection() {
               exit={{ opacity: 0, y: 24 }}
               transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
             >
-              <h3>{activeSlide.title}</h3>
+              <h2>{activeSlide.title}</h2>
               <p>{activeSlide.description}</p>
             </motion.div>
           </AnimatePresence>
@@ -162,14 +162,14 @@ export default function BrandIntroSection() {
           color: #fff;
           max-width: 720px;
         }
-        .about-services__slide-content h3 {
+        .about-services__slide-content h2 {
           font-size: 42px;
           font-weight: var(--fw-semibold);
           line-height: var(--lh-heading);
         }
         .about-services__slide-content p {
           color: rgba(255, 255, 255, 0.88);
-          font-size: 24px;
+          font-size: 18px;
           line-height: var(--lh-body);
         }
         .about-services__cta {
@@ -219,7 +219,7 @@ export default function BrandIntroSection() {
         }
         .about-services__body {
           color: #3d4246;
-          font-size: 24px;
+          font-size: 18px;
           line-height: var(--lh-body);
           max-width: 880px;
         }
@@ -253,7 +253,7 @@ export default function BrandIntroSection() {
           .about-services__title {
             font-size: var(--font-size-4xl);
           }
-          .about-services__slide-content h3 {
+          .about-services__slide-content h2 {
             font-size: var(--font-size-4xl);
           }
           .about-services__slide-content p,

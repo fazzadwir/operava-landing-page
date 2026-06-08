@@ -111,7 +111,7 @@ export default function CTASection() {
           letter-spacing: 0;
         }
         .cta__subtitle {
-          font-size: var(--font-size-base);
+          font-size: 18px;
           line-height: var(--lh-body);
           color: var(--color-text-secondary);
           max-width: 640px;

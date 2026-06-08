@@ -1,23 +1,14 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import {
-  ArrowRight,
   ClipboardList,
-  EyeOff,
-  Layers,
-  Puzzle,
   RefreshCw,
   Rocket,
   Settings2,
-  ShieldOff,
 } from 'lucide-react';
-import { challenges, workflowSteps } from '../data/workflow.js';
+import { workflowSteps } from '../data/workflow.js';
 
 const iconMap = {
-  EyeOff,
-  Puzzle,
-  ShieldOff,
-  Layers,
   ClipboardList,
   Settings2,
   Rocket,
@@ -57,62 +48,6 @@ export default function OperationalWorkflowSection() {
         </motion.div>
 
         <motion.div
-          className="workflow__part-header"
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          custom={0.1}
-        >
-          <span>Part 1</span>
-          <h3>Operational Challenges</h3>
-        </motion.div>
-
-        <motion.div
-          className="workflow__challenges"
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          variants={{
-            visible: { transition: { staggerChildren: 0.09, delayChildren: 0.15 } },
-            hidden: {},
-          }}
-        >
-          {challenges.map((c) => {
-            const Icon = iconMap[c.icon];
-            return (
-              <motion.div
-                key={c.id}
-                className="challenge-card"
-                variants={fadeUp}
-                whileHover={{ y: -3, transition: { duration: 0.2 } }}
-              >
-                <div className="challenge-card__icon technical-icon">
-                  {Icon && <Icon size={18} strokeWidth={1.75} />}
-                </div>
-                <div>
-                  <h4 className="challenge-card__title">{c.title}</h4>
-                  <p className="challenge-card__desc">{c.description}</p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        <motion.div
-          className="workflow__connector"
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          custom={0.5}
-        >
-          <div className="workflow__connector-line" />
-          <div className="workflow__connector-label">
-            <span>Part 2: Managed Workflow</span>
-            <ArrowRight size={16} />
-          </div>
-          <div className="workflow__connector-line" />
-        </motion.div>
-
-        <motion.div
           className="workflow__steps"
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
@@ -149,89 +84,6 @@ export default function OperationalWorkflowSection() {
       </div>
 
       <style>{`
-        .workflow__part-header {
-          display: flex;
-          align-items: end;
-          justify-content: space-between;
-          gap: var(--space-3);
-          margin-bottom: var(--space-3);
-        }
-        .workflow__part-header span {
-          color: var(--color-primary);
-          font-size: var(--font-size-xs);
-          font-weight: var(--fw-semibold);
-          line-height: var(--lh-body);
-          text-transform: uppercase;
-        }
-        .workflow__part-header h3 {
-          color: var(--color-text-primary);
-          font-size: var(--font-size-2xl);
-          font-weight: var(--fw-semibold);
-          line-height: var(--lh-heading);
-          margin-left: auto;
-        }
-        .workflow__challenges {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: var(--space-3);
-          margin-bottom: var(--space-6);
-        }
-        .challenge-card {
-          background: var(--color-card-bg);
-          border: 1px solid var(--color-border);
-          border-radius: var(--radius-md);
-          padding: var(--space-3);
-          box-shadow: var(--shadow-card);
-          display: flex;
-          flex-direction: column;
-          gap: var(--space-2);
-          transition: box-shadow var(--transition-smooth), border-color var(--transition-smooth), transform var(--transition-smooth);
-        }
-        .challenge-card:hover {
-          box-shadow: var(--shadow-card-hover);
-          border-color: rgba(2, 211, 95, 0.2);
-        }
-        .challenge-card__icon {
-          background: var(--color-primary-light);
-          color: var(--color-primary);
-        }
-        .challenge-card__title {
-          font-size: var(--font-size-sm);
-          font-weight: var(--fw-semibold);
-          color: var(--color-text-primary);
-          margin-bottom: var(--space-1);
-          line-height: var(--lh-heading);
-        }
-        .challenge-card__desc {
-          font-size: var(--font-size-xs);
-          line-height: var(--lh-body);
-          color: var(--color-text-secondary);
-        }
-        .workflow__connector {
-          display: flex;
-          align-items: center;
-          gap: var(--space-3);
-          margin-bottom: var(--space-6);
-        }
-        .workflow__connector-line {
-          flex: 1;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, var(--color-border));
-        }
-        .workflow__connector-line:last-child {
-          background: linear-gradient(90deg, var(--color-border), transparent);
-        }
-        .workflow__connector-label {
-          display: flex;
-          align-items: center;
-          gap: var(--space-1);
-          font-size: var(--font-size-xs);
-          font-weight: var(--fw-semibold);
-          color: var(--color-primary);
-          letter-spacing: 0;
-          text-transform: uppercase;
-          white-space: nowrap;
-        }
         .workflow__steps {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -301,18 +153,13 @@ export default function OperationalWorkflowSection() {
           color: var(--color-text-secondary);
         }
         @media (max-width: 1024px) {
-          .workflow__challenges,
           .workflow__steps {
             grid-template-columns: repeat(2, 1fr);
           }
         }
         @media (max-width: 640px) {
-          .workflow__challenges,
           .workflow__steps {
             grid-template-columns: 1fr;
-          }
-          .workflow__connector-line {
-            display: none;
           }
         }
       `}</style>
